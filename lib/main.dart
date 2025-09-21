@@ -1,93 +1,103 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:flutter_bootstrap/flutter_bootstrap.dart';
-=======
-import 'package:responsive_grid/responsive_grid.dart';
->>>>>>> b2000a3b83e31a61aa0debecf3b5767910d98931
 
 void main() {
   runApp(Myapp());
 }
 
-class Myapp extends StatefulWidget {
-  @override
-  State<Myapp> createState() => _MyappState();
-}
-
-class _MyappState extends State<Myapp> {
+class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: HomePage());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: MyHomepage());
   }
 }
 
-class HomePage extends StatelessWidget {
+class MyHomepage extends StatefulWidget {
+  const MyHomepage({super.key});
+
+  @override
+  State<MyHomepage> createState() => MyHomepageState();
+}
+
+class MyHomepageState extends State<MyHomepage> {
+  List<Shoping> Item = [
+    Shoping(name: "Mouse"),
+    Shoping(name: "Laptop"),
+    Shoping(name: "Microphone"),
+  ];
+  TextEditingController textEditingController =TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var Height = MediaQuery.of(context).size.width;
-    var orientation = MediaQuery.of(context).orientation;
-
     return Scaffold(
-<<<<<<< HEAD
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(0),
-          child: BootstrapContainer(
-            fluid: true,
+      appBar: AppBar(
+        title: Text("Naiem Hassan Niaem"),
+        centerTitle: true,
+        backgroundColor: Colors.amber,
+      ),
+      body: Column(
+        children: [
+          Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(0),
-                child: BootstrapRow(
-                  children: [
-                    BootstrapCol(
-                      fit: FlexFit.tight,
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.cyan),
+              Expanded(
+                flex: 7,
+                child: Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: SizedBox(
+
+                    child: TextField(
+                      controller: textEditingController,
                     ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.black),
-                    ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.blueGrey),
-                    ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.red),
-                    ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.amber),
-                    ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.yellow),
-                    ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.pinkAccent),
-                    ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.cyan),
-                    ),
-                    BootstrapCol(
-                      sizes: "col-xl-1 col-lg-2 col-md-3 col-sm-4",
-                      child: Container(height: 100, color: Colors.blueGrey),
-                    ),
-                  ],
+                  ),
                 ),
+              ),
+              Expanded(
+                flex: 2,
+                child: ElevatedButton(onPressed: (){
+                 final text = textEditingController.text.trim();
+                  if(text.isEmpty) {}
+                  else{
+                    setState(() {
+                      Item.add(Shoping(name: text));
+                      textEditingController.clear();
+                    });
+                  }
+                }, child: Text("Add Item")),
               ),
             ],
           ),
-        ),
-      ),
-=======
+          Expanded(child: ListView.builder(
+            itemCount: Item.length, // <-- এটা দিতে হবে নাহলে infinite list হবে
+            itemBuilder: (context, index) {
+              return Card(
+                color: Colors.white30,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
 
->>>>>>> b2000a3b83e31a61aa0debecf3b5767910d98931
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(Item[index].name),
+                      IconButton(onPressed: () {
+                          setState(() {
+                            Item.remove(Item[index]);
+                          });
+
+                      }, icon: Icon(Icons.delete)),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),)
+
+        ],
+      )
     );
   }
+}
+
+class Shoping {
+  String name;
+  bool isBought;
+  Shoping({required this.name, this.isBought = false});
 }
