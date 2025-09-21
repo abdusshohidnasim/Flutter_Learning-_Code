@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+=======
+import 'package:responsive_grid/responsive_grid.dart';
+>>>>>>> b2000a3b83e31a61aa0debecf3b5767910d98931
 
 void main() {
   runApp(Myapp());
@@ -26,6 +30,7 @@ class HomePage extends StatelessWidget {
     var orientation = MediaQuery.of(context).orientation;
 
     return Scaffold(
+<<<<<<< HEAD
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(0),
@@ -80,6 +85,9 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+=======
+
+>>>>>>> b2000a3b83e31a61aa0debecf3b5767910d98931
     );
   }
 }

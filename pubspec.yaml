@@ -35,7 +35,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   responsive_grid: ^2.4.4
+<<<<<<< HEAD
   flutter_bootstrap: ^2.0.0
+=======
+>>>>>>> b2000a3b83e31a61aa0debecf3b5767910d98931
 
 dev_dependencies:
   flutter_test:
