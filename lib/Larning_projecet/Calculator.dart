@@ -31,9 +31,9 @@ class MyHomepageState extends State<MyHomepage> {
       });
     }
     AddAllNumber(){
-     setState(() {
-       sum= ForValu["num1"]! + ForValu["num2"]! + ForValu["num3"]!;
-     });
+      setState(() {
+        sum= ForValu["num1"]! + ForValu["num2"]! + ForValu["num3"]!;
+      });
     }
     return Scaffold(
       appBar: AppBar(
