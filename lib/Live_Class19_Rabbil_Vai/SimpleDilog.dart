@@ -61,7 +61,7 @@ class MyHomepageState extends State<MyHomepage> {
   ShowSnackBar(){
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text("Here is my snack bar text"),duration: Duration(seconds: 2),
-      action: SnackBarAction(label: "close", onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),),
+        action: SnackBarAction(label: "close", onPressed: () => ScaffoldMessenger.of(context).hideCurrentSnackBar(),),
       ),
 
     );
@@ -81,26 +81,26 @@ class MyHomepageState extends State<MyHomepage> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Naiem Hassan Niaem"),
-        centerTitle: true,
-        backgroundColor: Colors.amber,
-      ),
-      backgroundColor: Colors.amber,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(onPressed: (){ShowAlartDilog();}, child: Text("Show Alart Dilog ")),
-            SizedBox(height: 20,),
-            TextButton(onPressed: (){ShowSimpleDilog();}, child: Text("Show Simple Dilog")),
-            SizedBox(height: 20,),
-            TextButton(onPressed: (){ShowSnackBar();}, child: Text("Show Snack Bar")),
-            SizedBox(height: 20,),
-            TextButton(onPressed: (){ShowBottomSheeet();}, child: Text("Show Boottom Sheet")),
-          ],
+        appBar: AppBar(
+          title: Text("Naiem Hassan Niaem"),
+          centerTitle: true,
+          backgroundColor: Colors.amber,
         ),
-      )
+        backgroundColor: Colors.amber,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(onPressed: (){ShowAlartDilog();}, child: Text("Show Alart Dilog ")),
+              SizedBox(height: 20,),
+              TextButton(onPressed: (){ShowSimpleDilog();}, child: Text("Show Simple Dilog")),
+              SizedBox(height: 20,),
+              TextButton(onPressed: (){ShowSnackBar();}, child: Text("Show Snack Bar")),
+              SizedBox(height: 20,),
+              TextButton(onPressed: (){ShowBottomSheeet();}, child: Text("Show Boottom Sheet")),
+            ],
+          ),
+        )
     );
   }
 }
